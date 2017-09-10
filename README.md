@@ -36,8 +36,11 @@ Minor features are in development stage. These are some of them:
 2. (08-Sep-2017) : first realese completed (v1.0)
 
 ### Author
-Giuseppe Biolo - [send me an email](giuseppe.biolo@gmail.com)
+
+Giuseppe Biolo - giuseppe dot biolo at gmail dot com
 
 ### License
+
 This software is licensed under MIT license.
+
 Copyright (c) 2017 Giuseppe Biolo
