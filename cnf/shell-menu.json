@@ -1,0 +1,18 @@
+{
+    "configurations" : {
+        "hostname" : {
+            "user1" : "/path/to/user1/configuration.json",
+            "user2" : "/path/to/user2/configuration.json"
+        }
+    },
+    "messages" : {
+        "choice"    : "Make your choice [0 to exit] : ",
+        "wrong"     : "Wrong choice",
+        "completed" : "Execution completed",
+        "back"      : "Press ENTER to return to shell-menu"
+    },
+    "vmargin"  : "0",
+    "hmargin"  : "0",
+    "hpadding" : "3",
+    "exit_key" : "0"
+}
