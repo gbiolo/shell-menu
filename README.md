@@ -1,37 +1,43 @@
-## Welcome to GitHub Pages
+## shell-menu is a simple menu for Unix-like systems (Linux/HP-UX/SunOS/etc)
 
-You can use the [editor on GitHub](https://github.com/gbiolo/shell-menu/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+### Description
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The main target of the project is to provide an easy to deploy menu to use in
+shell mode, for example in case of remote SSH connection, that allow the user
+to easily execute a set of command.
 
-### Markdown
+The configuration is based on two JSON format files. The first must be located
+in a subdirectory called 'cnf' inside the shell-menu.py directory.
+The second one can be saved in any directory of the system where the user that
+will execute the shell-menu.py has the read rights.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+First configuration file is the main one, and the name must be "shell-menu.json".
+The user is free to choose a name for the second one.
+
+### Synopsis
+
+If all cofigurations have been done correctly just execute
 
 ```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+./shell-menu.py
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Into the directoy where the program has been installed.
 
-### Jekyll Themes
+### Todo
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/gbiolo/shell-menu/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Minor features are in development stage. These are some of them:
+- Same configuration for many hostnames and users with the '*' marker
+- Multiple columns menus based on fixed line number
 
-### Support or Contact
+### Changelog
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+1. (05-Sep-2017) : born of the project
+2. (08-Sep-2017) : first realese completed (v1.0)
+
+### Author
+Giuseppe Biolo - [send me an email](giuseppe.biolo@gmail.com)
+
+### License
+This software is licensed under MIT license.
+Copyright (c) 2017 Giuseppe Biolo
