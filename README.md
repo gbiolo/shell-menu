@@ -40,6 +40,8 @@ Minor features are in development stage. These are some of them:
 
 1. (05-Sep-2017) : born of the project
 2. (08-Sep-2017) : first realese completed (v1.0)
+3. (11-Sep-2017) : implemeted the use of the same configuration JSON for many
+                   hostnames and users with the '*' marker
 
 ### Author
 

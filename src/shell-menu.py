@@ -1,4 +1,5 @@
-#! /usr/bin/env python3
+#! /users/opscng/data03/stat/Esercizio_Pd/Python-3.6.2/python
+# /usr/bin/env python3
 
 ''' shell-menu is a simple menu for Unix-like systems (Linux/HP-UX/SunOS/etc).
 
@@ -29,6 +30,8 @@ Todo:
 Changelog:
     05-Sep-2017 : born of the project
     08-Sep-2017 : first realese completed (v1.0)
+    11-Sep-2017 : implemeted the use of the same configuration JSON for many
+                  hostnames and users with the '*' marker
 
 Author:
     Giuseppe Biolo  < giuseppe.biolo@gmail.com > < https://github.com/gbiolo >
@@ -63,6 +66,7 @@ from subprocess import call
 import sys
 import termios
 import os
+import re
 
 
 def format_string( unformatted, length, allign="sx" ):
@@ -109,20 +113,20 @@ def create_menu( menu ):
     '''
     menu_specs = { "rows" : [], "size" : 0, "links" : {} }
     name = menu["name"]
-    scripts = menu["scripts"]
-    num_scripts = len( scripts )
+    commands = menu["commands"]
+    num_commands = len( commands )
     # External command index string maximum length
     index_length = 1
-    while num_scripts >= 10:
+    while num_commands >= 10:
         index_length += 1
-        num_scripts = int(num_scripts / 10)
+        num_commands = int(num_commands / 10)
     # Grid size, calculated on length of menu name and on length of all scripts
     # name
     header_length = len( name ) + 4
-    for script in scripts:
-        script_length = ( len( script["name"] ) + index_length + 4 )
-        if script_length > header_length:
-            header_length = script_length
+    for command in commands:
+        command_length = ( len( command["name"] ) + index_length + 4 )
+        if command_length > header_length:
+            header_length = command_length
     menu_specs["size"] = (header_length + 3)
     # Create all menu rows that will be inserted into the array 'rows'
     menu_specs["rows"].append( "+-" + ('-'*header_length) + "+" )
@@ -130,11 +134,11 @@ def create_menu( menu ):
                                "center") + "|" )
     menu_specs["rows"].append( "+-" + ('-'*header_length) + "+" )
     index = int( menu["base"], base=10 )
-    for script in scripts:
+    for command in commands:
         index_str = format_string(str(index), index_length, "dx")
         menu_specs["rows"].append( "| "+ format_string( index_str + ") " +
-                                   script["name"] + " ", header_length, "sx") + '|' )
-        menu_specs["links"][str(index)] = script["script"]
+                                   command["name"] + " ", header_length, "sx") + '|' )
+        menu_specs["links"][str(index)] = command["command"]
         index += 1
     menu_specs["rows"].append( "+-" + ('-'*header_length) + "+" )
     return menu_specs
@@ -149,6 +153,18 @@ if __name__ == "__main__":
     # Open and load the main configuration JSON
     with open( os.getcwd()+"/cnf/shell-menu.json", "r" ) as configuration:
         main_conf = json.load( configuration )
+    if hostname not in main_conf["configurations"]:
+        if "*" in main_conf["configurations"]:
+            hostname = "*"
+        else:
+            print( "No configuration for the current hostname (" + hostname + ")" )
+            exit()
+    if user not in main_conf["configurations"][ hostname ]:
+        if "*" in main_conf["configurations"][hostname]:
+            user = '*'
+        else:
+            print( "No configuration for the current user (" + user + ")" )
+            exit()
     with open( main_conf["configurations"][ hostname ][ user ] ) as configuration:
         menu_conf = json.load( configuration )
     vmargin = int( main_conf[ "vmargin" ], base=10 )
@@ -182,7 +198,7 @@ if __name__ == "__main__":
                 if choice in menu["links"]:
                     found = 1
                     call( "clear" )
-                    call( menu["links"][choice] )
+                    call( re.split( "\S+", menu["links"][choice] ) )
                     print()
                     print( (' '*hmargin) + "--------------------" )
                     print( (' '*hmargin) + main_conf["messages"]["completed"], end="\n" )
