@@ -147,7 +147,7 @@ if __name__ == "__main__":
     main_conf = None
     menu_conf = None
     # Open and load the main configuration JSON
-    with open( os.getcwd()+"/shell-menu.json", "r" ) as configuration:
+    with open( os.getcwd()+"/cnf/shell-menu.json", "r" ) as configuration:
         main_conf = json.load( configuration )
     with open( main_conf["configurations"][ hostname ][ user ] ) as configuration:
         menu_conf = json.load( configuration )

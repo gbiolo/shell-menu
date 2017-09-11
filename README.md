@@ -24,6 +24,12 @@ If all cofigurations have been done correctly just execute
 
 Into the directoy where the program has been installed.
 
+
+### Requirements
+
+The only requirement of shell-menu is Python 3. The software won't run with older
+versions of Python.
+
 ### Todo
 
 Minor features are in development stage. These are some of them:
@@ -37,7 +43,7 @@ Minor features are in development stage. These are some of them:
 
 ### Author
 
-Giuseppe Biolo - giuseppe dot biolo at gmail dot com
+Giuseppe Biolo - giuseppe (dot) biolo (at) gmail (dot) com
 
 ### License
 
