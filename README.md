@@ -1,5 +1,6 @@
 ## shell-menu is a simple menu for Unix-like systems (Linux/HP-UX/SunOS/etc)
 
+
 ### Description
 
 The main target of the project is to provide an easy to deploy menu to use in
@@ -13,6 +14,7 @@ will execute the shell-menu.py has the read rights.
 
 First configuration file is the main one, and the name must be "shell-menu.json".
 The user is free to choose a name for the second one.
+
 
 ### Synopsis
 
@@ -30,11 +32,12 @@ Into the directoy where the program has been installed.
 The only requirement of shell-menu is Python 3. The software won't run with older
 versions of Python.
 
+
 ### Todo
 
 Minor features are in development stage. These are some of them:
-- Same configuration for many hostnames and users with the '*' marker
 - Multiple columns menus based on fixed line number
+
 
 ### Changelog
 
@@ -43,9 +46,11 @@ Minor features are in development stage. These are some of them:
 3. (11-Sep-2017) : implemeted the use of the same configuration JSON for many
                    hostnames and users with the '*' marker
 
+
 ### Author
 
 Giuseppe Biolo - giuseppe (dot) biolo (at) gmail (dot) com
+
 
 ### License
 
