@@ -2,8 +2,8 @@
     "title" : "shell-menu global title",
     "menus" : {
         "0" : {
-            "name"    : "First submenu title",
-            "base"    : "1",
+            "name"     : "First submenu title",
+            "base"     : "1",
             "commands" : [
                 { "name" : "First command",  "command" : "/full/path/to/external/script_1.sh" },
                 { "name" : "Second command", "command" : "/full/path/to/external/script_2.sh" },
@@ -11,17 +11,17 @@
             ]
         },
         "1" : {
-            "name"    : "Second submenu title",
-            "base"    : "10",
+            "name"     : "Second submenu title",
+            "base"     : "10",
             "commands" : [
                 { "name" : "Fourth command", "command" : "/full/path/to/external/script_4.sh" },
                 { "name" : "Fifth command",  "command" : "/full/path/to/external/script_5.sh" }
             ]
         },
         "2" : {
-            "name"    : "Third submenu title",
-            "base"    : "20",
-            "scripts" : [ ]
+            "name"     : "Third submenu title",
+            "base"     : "20",
+            "commands" : [ ]
         }
     }
 }

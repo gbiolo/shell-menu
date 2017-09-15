@@ -1,4 +1,4 @@
-## shell-menu is a simple menu for Unix-like systems (Linux/HP-UX/SunOS/etc)
+## shell-menu is a simplified menu for shell environment
 
 
 ### Description
@@ -54,6 +54,19 @@ Giuseppe Biolo - giuseppe (dot) biolo (at) gmail (dot) com
 
 ### License
 
-This software is licensed under MIT license.
+This software is licensed under GPL v3 license.
 
 Copyright (c) 2017 Giuseppe Biolo
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You can read the full text of the GNU General Public License version 3
+[here](http://www.gnu.org/licenses/).
