@@ -1,0 +1,36 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+---------------------------------
+
+## 2017-09-05
+Born of the project
+
+---------------------------------
+
+## 2017-09-08
+Main release with the principal functions implemented
+
+---------------------------------
+
+## 2017-09-11
+
+### Added
+
+- Use of the same configuration JSON for many hostnames and users using the '*'
+  marker
+
+---------------------------------
+
+## 2017-09-21
+
+### Added
+
+- Project totally redesigned using objects
+- Info box with auto-split text and multi text
+
+### Removed
+
+- Customizable text for interface (english is enought)
+
+---------------------------------

@@ -10,7 +10,7 @@ to easily execute a set of command.
 The configuration is based on two JSON format files. The first must be located
 in a subdirectory called 'cnf' inside the shell-menu.py directory.
 The second one can be saved in any directory of the system where the user that
-will execute the shell-menu.py has the read rights.
+will execute the shell-menu.py has the read grants.
 
 First configuration file is the main one, and the name must be "shell-menu.json".
 The user is free to choose a name for the second one.
@@ -29,22 +29,21 @@ Into the directoy where the program has been installed.
 
 ### Requirements
 
-The only requirement of shell-menu is Python 3. The software won't run with older
-versions of Python.
+First of all it can be used only in an Unix-like operating system
+(Linux, Solaris, HP-UX, ecc.).
+
+For Python interpreter, you need at least Python 2.6+ or Python 3.3+. With
+older versions the program won't run due the import of the __future__.
+
+By default the environment used to execute the program is Python 3, but you can
+change it just replacing "python3" with "python" or "python2" (depending your system
+environment) into the first line (hash-bang) of the "sheel-menu.py".
 
 
 ### Todo
 
 Minor features are in development stage. These are some of them:
 - Multiple columns menus based on fixed line number
-
-
-### Changelog
-
-1. (05-Sep-2017) : born of the project
-2. (08-Sep-2017) : first realese completed (v1.0)
-3. (11-Sep-2017) : implemeted the use of the same configuration JSON for many
-                   hostnames and users with the '*' marker
 
 
 ### Author

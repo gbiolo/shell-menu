@@ -1,15 +1,12 @@
 {
     "configurations" : {
         "hostname" : {
-            "user1" : "/path/to/user1/configuration.json",
-            "user2" : "/path/to/user2/configuration.json"
+            "user1" : "/path/to/user1/configuration/shell-menu-content.json",
+            "user2" : "/path/to/user2/configuration/shell-menu-content.json"
+        },
+        "*" : {
+            "*" : "/path/to/all/user/configuration/shell-menu-content.json"
         }
-    },
-    "messages" : {
-        "choice"    : "Make your choice [0 to exit] : ",
-        "wrong"     : "Wrong choice",
-        "completed" : "Execution completed",
-        "back"      : "Press ENTER to return to shell-menu"
     },
     "vmargin"  : "0",
     "hmargin"  : "0",

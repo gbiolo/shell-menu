@@ -1,27 +1,39 @@
 {
-    "title" : "shell-menu global title",
-    "menus" : {
+    "title" : "Example of a shell-menu",
+    "menu" : {
         "0" : {
-            "name"     : "First submenu title",
+            "title"    : "First submenu title",
             "base"     : "1",
             "commands" : [
-                { "name" : "First command",  "command" : "/full/path/to/external/script_1.sh" },
-                { "name" : "Second command", "command" : "/full/path/to/external/script_2.sh" },
-                { "name" : "Third command",  "command" : "/full/path/to/external/script_3.sh" }
+                { "name" : "First command",  "command" : "/command/full/path/first.sh" },
+                { "name" : "Second command", "command" : "/command/full/path/second.sh" },
+                { "name" : "Third command",  "command" : "/command/full/path/third.sh" }
             ]
         },
         "1" : {
-            "name"     : "Second submenu title",
+            "title"    : "Second submenu title",
             "base"     : "10",
             "commands" : [
-                { "name" : "Fourth command", "command" : "/full/path/to/external/script_4.sh" },
-                { "name" : "Fifth command",  "command" : "/full/path/to/external/script_5.sh" }
+                { "name" : "Fourth command", "command" : "/command/full/path/fourth.sh" },
+                { "name" : "Fifth command",  "command" : "/command/full/path/fifth.sh" }
             ]
+        }
+    },
+    "info" : {
+        "0" : {
+            "title" : "Two text info box",
+            "text"  : [
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a.",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec egestas urna id dolor tincidunt tincidunt."
+            ],
+            "width" : "20"
         },
-        "2" : {
-            "name"     : "Third submenu title",
-            "base"     : "20",
-            "commands" : [ ]
+        "1" : {
+            "title" : "Single text info box",
+            "text"  : [
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et cursus ex. Nullam feugiat posuere."
+            ],
+            "width" : "15"
         }
     }
 }
