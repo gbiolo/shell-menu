@@ -4,7 +4,7 @@
 ### Description
 
 The main target of the project is to provide an easy to deploy menu to use in
-shell mode, for example in case of remote SSH connection, that allow the user
+shell mode, for example in case of remote SSH connection, that allows the user
 to easily execute a set of command.
 
 The configuration is based on two JSON format files. The first must be located
