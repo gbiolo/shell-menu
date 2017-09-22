@@ -34,3 +34,11 @@ Main release with the principal functions implemented
 - Customizable text for interface (english is enought)
 
 ---------------------------------
+
+## 2017-09-22
+
+### Added
+
+- Interactive installer with Python interpreter recognition
+
+---------------------------------

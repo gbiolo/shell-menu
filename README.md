@@ -16,6 +16,28 @@ First configuration file is the main one, and the name must be "shell-menu.json"
 The user is free to choose a name for the second one.
 
 
+### Installation
+
+To install shell-menu the only things to do is to clone the git repository, and
+execute the script INSTALL.py using the Python interpreter that you want for Normal
+shell-menu execution.
+
+This is two examples of installation command:
+
+```markdown
+python INSTALL.py
+  or
+python3 INSTALL.py
+```
+
+Interactive installation will just ask you for a target directory, in which shell-menu
+will be installed inside a subdirectory "shell-menu".
+
+If the target directory already contains a shell-menu instance, installation will
+propose to switch to update mode. In this mode just sources and minor files will be
+changed, the configuration files won't change.
+
+
 ### Synopsis
 
 If all cofigurations have been done correctly just execute
