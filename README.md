@@ -19,14 +19,15 @@ The user is free to choose a name for the second one.
 ### Installation
 
 To install shell-menu the only things to do is to clone the git repository, and
-execute the script INSTALL.py using the Python interpreter that you want for Normal
+execute the script INSTALL.py using the Python interpreter that you want for normal
 shell-menu execution.
 
 This is two examples of installation command:
 
 ```markdown
 python INSTALL.py
-  or
+```
+```markdown
 python3 INSTALL.py
 ```
 
@@ -57,9 +58,9 @@ First of all it can be used only in an Unix-like operating system
 For Python interpreter, you need at least Python 2.6+ or Python 3.3+. With
 older versions the program won't run due the import of the __future__.
 
-By default the environment used to execute the program is Python 3, but you can
-change it just replacing "python3" with "python" or "python2" (depending your system
-environment) into the first line (hash-bang) of the "sheel-menu.py".
+In repository source the default environment is Python 3, but with installation
+it will be changed according the version of Python interpreter used for
+installation script.
 
 
 ### Todo
