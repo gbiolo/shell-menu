@@ -1,18 +1,18 @@
 
-''' shell-menu is a simplified menu for shell environment.
+"""shell-menu is a simplified menu for shell environment.
 
 Description:
-    The main target of the project is to provide an easy to deploy menu to use in
-    shell mode, for example in case of remote SSH connection, that allows the user
-    to easily execute a set of command.
+    The main target of the project is to provide an easy to deploy menu to use
+    in shell mode, for example in case of remote SSH connection, that allows
+    the user to easily execute a set of command.
 
-    The configuration is based on two JSON format files. The first must be located
-    in a subdirectory called 'cnf' inside the shell-menu.py directory.
-    The second one can be saved in any directory of the system where the user that
-    will execute the shell-menu.py has the read grants.
+    The configuration is based on two JSON format files. The first must be
+    located in a subdirectory called 'cnf' inside the shell-menu.py directory.
+    The second one can be saved in any directory of the system where the user
+    that will execute the shell-menu.py has the read grants.
 
-    First configuration file is the main one, and the name must be "shell-menu.json".
-    The user is free to choose a name for the second one.
+    First configuration file is the main one, and the name must be
+    "shell-menu.json". The user is free to choose a name for the second one.
 
 Author:
     Giuseppe Biolo  < giuseppe.biolo@gmail.com > < https://github.com/gbiolo >
@@ -32,7 +32,7 @@ License:
 
     You should have received a copy of the GNU General Public License
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
-'''
+"""
 
 
 import re
