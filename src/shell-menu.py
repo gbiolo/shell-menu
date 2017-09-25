@@ -144,20 +144,20 @@ if __name__ == "__main__":
             exit()
         else:
             found = 0
-            # For each menu box check if there is a command with the inserted index
+            # Check each menu box if there is a command with the inserted index
             for box in boxes:
-                if isinstance(box,Menu):
-                    command = box.get_command( choice )
+                if isinstance(box, Menu):
+                    command = box.get_command(choice)
                     if command:
                         found = 1
-                        call( "clear" )
+                        call("clear")
                         # Execution of the command
-                        call( command )
+                        call(command)
             # Command not found in any menu box
             if not found:
                 print()
-                print(  "{}\"{}\" is not a valid choice".
-                       format( (' '*hmargin), choice ), end="\n\n" )
+                print("{}\"{}\" is not a valid choice".
+                      format((' '*hmargin), choice), end="\n\n")
 
             # Print the 'go back' message and wait until the user press the
             # ENTER button to continue
@@ -167,11 +167,12 @@ if __name__ == "__main__":
             new[3] = new[3] & ~termios.ECHO
             try:
                 termios.tcsetattr(fd, termios.TCSADRAIN, new)
-                print( (' '*hmargin) + "--------------------" )
-                # For Python 2.6+ must catch the exception of SyntaxError for empty
-                # string and "pass" the error
+                print((' '*hmargin) + "--------------------")
+                # For Python 2.6+ the exception of SyntaxError for empty string
+                # must be catched and "pass" the error
                 try:
-                    input( (' '*hmargin) + "Press ENTER to return to shell-menu" )
+                    input((" "*hmargin) +
+                          "Press ENTER to return to shell-menu")
                 except SyntaxError:
                     pass
             finally:

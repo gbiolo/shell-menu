@@ -18,35 +18,32 @@ The user is free to choose a name for the second one.
 
 ### Installation
 
-To install shell-menu the only things to do is to clone the git repository, and
-execute the script INSTALL.py using the Python interpreter that you want for normal
-shell-menu execution.
+To install shell-menu the only things to do are to clone the git repository,
+and execute the script INSTALL.py using the Python interpreter that you want
+for normal shell-menu execution.
 
-This is two examples of installation command:
-
+This is two examples of installation command, the first one using probably Python 2,
+and the second one using probably Python 3:
 ```markdown
 python INSTALL.py
 ```
 ```markdown
 python3 INSTALL.py
 ```
+Interactive installation will just ask you for a target directory, in which
+shell-menu will be installed inside a subdirectory "shell-menu".
 
-Interactive installation will just ask you for a target directory, in which shell-menu
-will be installed inside a subdirectory "shell-menu".
-
-If the target directory already contains a shell-menu instance, installation will
-propose to switch to update mode. In this mode just sources and minor files will be
-changed, the configuration files won't change.
+If the target directory already contains a shell-menu instance, installation
+will propose to switch to update mode. In this mode just sources and minor
+files will be changed, the configuration files won't change.
 
 
 ### Synopsis
 
 If all cofigurations have been done correctly just execute
-
 ```markdown
 ./shell-menu.py
 ```
-
 Into the directoy where the program has been installed.
 
 
@@ -55,18 +52,11 @@ Into the directoy where the program has been installed.
 First of all it can be used only in an Unix-like operating system
 (Linux, Solaris, HP-UX, ecc.).
 
-For Python interpreter, you need at least Python 2.6+ or Python 3.3+. With
-older versions the program won't run due the import of the __future__.
+For Python interpreter, you need at least Python 2.6+ or Python 3.3+.
 
-In repository source the default environment is Python 3, but with installation
-it will be changed according the version of Python interpreter used for
-installation script.
-
-
-### Todo
-
-Minor features are in development stage. These are some of them:
-- Multiple columns menus based on fixed line number
+In repository source the default environment is Python 3, but during the
+installation it will be changed according the version of Python interpreter
+used for installation script.
 
 
 ### Author
@@ -77,7 +67,7 @@ Giuseppe Biolo - giuseppe (dot) biolo (at) gmail (dot) com
 ### License
 
 This software is licensed under GPL v3 license.
-
+```markdown
 Copyright (c) 2017 Giuseppe Biolo
 
 This program is free software: you can redistribute it and/or modify
@@ -92,3 +82,4 @@ GNU General Public License for more details.
 
 You can read the full text of the GNU General Public License version 3
 [here](http://www.gnu.org/licenses/).
+```

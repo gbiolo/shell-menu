@@ -3,7 +3,7 @@
     "menu" : {
         "0" : {
             "title"    : "First submenu title",
-            "base"     : "1",
+            "base"     : 1,
             "commands" : [
                 { "name" : "First command",  "command" : "/command/full/path/first.sh" },
                 { "name" : "Second command", "command" : "/command/full/path/second.sh" },
@@ -12,7 +12,7 @@
         },
         "1" : {
             "title"    : "Second submenu title",
-            "base"     : "10",
+            "base"     : 10,
             "commands" : [
                 { "name" : "Fourth command", "command" : "/command/full/path/fourth.sh" },
                 { "name" : "Fifth command",  "command" : "/command/full/path/fifth.sh" }
@@ -26,14 +26,14 @@
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a.",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec egestas urna id dolor tincidunt tincidunt."
             ],
-            "width" : "20"
+            "width" : 20
         },
         "1" : {
             "title" : "Single text info box",
             "text"  : [
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et cursus ex. Nullam feugiat posuere."
             ],
-            "width" : "15"
+            "width" : 15
         }
     }
 }

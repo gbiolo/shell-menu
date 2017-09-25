@@ -1,18 +1,18 @@
 
-''' shell-menu is a simplified menu for shell environment.
+"""shell-menu is a simplified menu for shell environment.
 
 Description:
-    The main target of the project is to provide an easy to deploy menu to use in
-    shell mode, for example in case of remote SSH connection, that allows the user
-    to easily execute a set of command.
+    The main target of the project is to provide an easy to deploy menu to use
+    in shell mode, for example in case of remote SSH connection, that allows
+    the user to easily execute a set of command.
 
-    The configuration is based on two JSON format files. The first must be located
-    in a subdirectory called 'cnf' inside the shell-menu.py directory.
-    The second one can be saved in any directory of the system where the user that
-    will execute the shell-menu.py has the read grants.
+    The configuration is based on two JSON format files. The first must be
+    located in a subdirectory called 'cnf' inside the shell-menu.py directory.
+    The second one can be saved in any directory of the system where the user
+    that will execute the shell-menu.py has the read grants.
 
-    First configuration file is the main one, and the name must be "shell-menu.json".
-    The user is free to choose a name for the second one.
+    First configuration file is the main one, and the name must be
+    "shell-menu.json". The user is free to choose a name for the second one.
 
 Author:
     Giuseppe Biolo  < giuseppe.biolo@gmail.com > < https://github.com/gbiolo >
@@ -32,11 +32,12 @@ License:
 
     You should have received a copy of the GNU General Public License
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
-'''
+"""
 
 
 # Compatibility with Python 2.6+ and Python 3.3+
 from __future__ import print_function
+from __future__ import with_statement
 
 import sys
 import os
@@ -45,43 +46,46 @@ import re
 from subprocess import call
 
 
-def ask_user( question ):
-    ''' Function to ask something to user in interactive mode
+def ask_user(question):
+    """Function to ask something to user in interactive mode.
+
     The only parameter to provide is the question for the user, and the return
     value is the user answer.
-    '''
+    """
     answer = None
     if sys.version_info.major == 2:
-        answer = raw_input( question )
+        answer = raw_input(question)
     elif sys.version_info.major == 3:
-        answer = input( question )
+        answer = input(question)
     return answer
 
-def copy_file( source_file, destination ):
-    ''' Function to copy a givven file to a givven path
+
+def copy_file(source_file, destination):
+    """Function to copy a given file to a given path.
+
     The two arguments that must be provided are:
         - source_file : file name, with absolute system path, of the new file
         - destination : absolute path of the target directory
     If it's already present in the destination directory a file with the same
     name of the new one, the old file will be lost
-    '''
-    if not os.path.exists( destination ):
+    """
+    if not os.path.exists(destination):
         try:
-            print( "Creating the destination path " + destination )
-            os.mkdir( destination )
+            print("Creating the destination path " + destination)
+            os.mkdir(destination)
         except OSError:
-            print( "Error in creation of destination path " + destination )
+            print("Error in creation of destination path " + destination)
             exit()
-    filename = re.split( "/", source_file ).pop()
-    if os.path.exists( destination + "/" + filename ):
-        print( "Updating ", end='' )
+    filename = re.split("/", source_file).pop()
+    if os.path.exists(destination + "/" + filename):
+        print("Updating ", end='')
     else:
-        print( "Copying ", end='' )
-    print( "file {0}/{1}".format( destination, filename ) )
+        print("Copying ", end='')
+    print("file {0}/{1}".format(destination, filename))
     try:
-        shutil.copyfile( source_file, destination + "/" + filename )
+        shutil.copyfile(source_file, destination + "/" + filename)
     except OSError:
-        print( "Error in creation of {0}/{1}".format( destination, filename ) )
+        print("Error in creation of {0}/{1}".format(destination, filename))
         exit()
 
 
@@ -95,61 +99,61 @@ if __name__ == "__main__":
     local_path = os.getcwd()
 
     # Ask installation path to the user
-    destination_path = ask_user( "Full path of the directory where install shell-menu (must exists) : " )
-    destination_path = ( destination_path + "/shell-menu" )
+    destination_path = ask_user("Full path of the directory where install shell-menu (must exists) : ")
+    destination_path = (destination_path + "/shell-menu")
 
     # Mode flags
-    update_mode  = False
+    update_mode = False
 
     # Check if the installation directory exists
-    if os.path.isdir( destination_path ):
+    if os.path.isdir(destination_path):
         # Update mode or directory already present
-        if os.path.exists( destination_path + "/shell-menu.py" ):
-            print( "Installation path already contains an installation of shell-menu" )
-            update_ask = ask_user( "Do you want to continue in update mode? [Y/n] " )
+        if os.path.exists(destination_path + "/shell-menu.py"):
+            print("Installation path already contains an installation of shell-menu")
+            update_ask = ask_user("Do you want to continue in update mode? [Y/n] ")
             if update_ask == "Y" or update_ask == "":
                 update_mode = True
             else:
-                print( "Please remove installation directory and repeat the installation procedure" )
+                print("Please remove installation directory and repeat the installation procedure")
                 exit()
         else:
-            print( "Installation path already exists. Please remove and repeat the installation procedure.")
+            print("Installation path already exists. Please remove and repeat the installation procedure")
     else:
         # Normal installation
-        print( "Installation path doesn't exists. It will be created." )
+        print("Installation path doesn't exists... It will be created")
         try:
-            os.mkdir( destination_path )
+            os.mkdir(destination_path)
         except OSError:
-            print( "Error in install directory creation.")
+            print("Error in install directory creation")
             exit()
 
     # Copy main source file inserting the right environment
-    print( "Set " + interpreter_path + " as interpreter" )
-    print( "Creating source file " + destination_path + "/shell-menu.py" )
-    with open( local_path + "/src/shell-menu.py", "r" ) as in_handler:
-        with open( destination_path + "/shell-menu.py", "w" ) as out_handler:
+    print("Set " + interpreter_path + " as Python interpreter")
+    print("Creating source file " + destination_path + "/shell-menu.py")
+    with open(local_path + "/src/shell-menu.py", "r") as in_handler:
+        with open(destination_path + "/shell-menu.py", "w") as out_handler:
             for line in in_handler:
-                if re.match( "^#! ", line ):
-                    print( "#! " + interpreter_path, end="\n", file=out_handler )
+                if re.match("^#! ", line):
+                    print("#! " + interpreter_path, end="\n", file=out_handler)
                 else:
-                    print( line, end='', file=out_handler )
-    call( [ "chmod", "u+x", destination_path + "/shell-menu.py" ])
+                    print(line, end='', file=out_handler)
+    call(["chmod", "u+x", destination_path + "/shell-menu.py"])
 
     # Copy other source files
-    for src_file in os.listdir( local_path + "/src/shell-menu" ):
-        if re.search( "\.py$", src_file ):
-            if os.path.isfile( local_path + "/src/shell-menu/" + src_file ):
-                copy_file( local_path + "/src/shell-menu/" + src_file,
-                           destination_path + "/shell-menu" )
+    for src_file in os.listdir(local_path + "/src/shell-menu"):
+        if re.search("\.py$", src_file):
+            if os.path.isfile(local_path + "/src/shell-menu/" + src_file):
+                copy_file(local_path + "/src/shell-menu/" + src_file,
+                          destination_path + "/shell-menu")
 
     # Copy LICENSE, README.md, CHANGELOG
     for text_file in "LICENSE", "README.md", "CHANGELOG":
-        copy_file( local_path + "/" + text_file, destination_path )
+        copy_file(local_path + "/" + text_file, destination_path)
 
     # Copy configuration files only if not in update mode
     if not update_mode:
-        for cnf_file in os.listdir( local_path + "/cnf" ):
-            if re.search( "\.json$", cnf_file ):
-                if os.path.isfile( local_path + "/cnf/" + cnf_file ):
-                    copy_file( local_path + "/cnf/" + cnf_file,
-                    destination_path + "/cnf" )
+        for cnf_file in os.listdir(local_path + "/cnf"):
+            if re.search("\.json$", cnf_file):
+                if os.path.isfile(local_path + "/cnf/" + cnf_file):
+                    copy_file(local_path + "/cnf/" + cnf_file,
+                              destination_path + "/cnf")

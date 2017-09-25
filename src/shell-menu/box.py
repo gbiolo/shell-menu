@@ -63,15 +63,12 @@ class Box:
         Input parameters are the following:
             unformatted : string to format
             length      : final length of the formatted string; in case of
-                        input
-                          string longer than the final length, the input string won't
-                          be change, and the final string will be the same of the
-                          input one
-            allign      : allignment of the final string; the allowed values are:
-                              - sx     : left allignment
+                          input string longer than the final length, the final
+                          string will be the same of the input one
+            allign      : allignment of the final string; allowed values:
+                              - sx     : left allignment   (default value)
                               - dx     : right allignment
                               - center : centred string
-                          default value of the parameter "allign" is "sx" (left allignment)
         Return value is the formatted string.
         """
         if len(unformatted) >= length:

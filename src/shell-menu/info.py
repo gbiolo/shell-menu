@@ -40,74 +40,75 @@ import re
 from box import Box
 
 
-class Info( Box ):
-    ''' Class that rappresent an info box, with one or more text messages
-    '''
+class Info(Box):
+    """Class that rappresent an info box, with one or more text messages."""
 
-    def __init__( self, configuration ):
-        ''' Read the configuration for the info box from a dictionary, passed as
-        argument, and split the text into rows of a given maximum length
-        '''
+    def __init__(self, configuration):
+        """Method that initialize a new info box object.
+
+        The new object configuration is extracted from a dictionary, passed as
+        argument ("configuration" argument).
+        """
         # Initialization of the base object
-        Box.__init__( self )
+        Box.__init__(self)
 
-        self.title = configuration[ "title" ]
-
-        # Full text to split in multiple lines
-        unsplitted = configuration[ "text" ]
+        self.title = configuration["title"]
 
         # Maximum legnth of each line
-        length = int( configuration[ "width" ], base=10 )
-        if length < len( self.title ):
-            length = len( self.title )
-        self.size = ( length + 4 )
-        Box.create_header( self )
+        length = configuration["width"]
+        if length < len(self.title):
+            length = len(self.title)
+        self.size = (length + 4)
+        Box.create_header(self)
 
         # Generate the rows of the box
-        if len( configuration[ "text" ] ) > 1:
-            for text in configuration[ "text" ]:
-                self.split_and_append( text, length, "* " )
+        if len(configuration["text"]) > 1:
+            for text in configuration["text"]:
+                self.split_and_append(text, length, "* ")
         else:
-            self.split_and_append( configuration[ "text" ][ 0 ], length )
+            self.split_and_append(configuration["text"][0], length)
 
         # Closing info box
-        self.rows.append( "+-" + ('-'*(length+1)) + "+" )
+        self.rows.append("+-" + ('-'*(length+1)) + "+")
 
-    def split_and_append( self, unsplitted, length, head="" ):
-        ''' Method to split the info box message text into multiple lines to
-        insert in the box "rows" array; all final lines must respect the given
-        length.
+    def split_and_append(self, unsplitted, length, head=""):
+        """Method to split the info box message text into multiple lines.
+
+        The method generates the rows to insert in the box "rows" array; all
+        final lines must respect the given length.
         The parameter "head" indicates an header for the first line of the
         splitted output.
-        For single text info box no header is inserted, instad for multi text info
-        box each text starts with a "* " header
-        '''
+        For single text info box no header is inserted, instad for multi text
+        info box each text starts with a "* " header
+        """
         # Temporary variables for line length and line content
         temp_length = 0
-        temp_row    = head
+        temp_row = head
         # Split the input string in words and reformat the word one by one
-        for word in re.split( "\s+", unsplitted ):
+        for word in re.split("\s+", unsplitted):
             if temp_row == head:
-                temp_row = ( "| " + head )
-            # words with length over the line length, will be splitted into sub-words
-            # and a '-' will be inserted at the end of each sub-words (except the
-            # last one)
-            while len( word ) > length:
-                self.rows.append( self.format_string( temp_row +
-                                  word[ 0:(length-temp_length-2) ] + "- |",
-                                  (length+4) ) )
-                word = word[ (length-temp_length-1): ]
+                temp_row = ("| " + head)
+            # Words with length over the line length, will be splitted into
+            # sub-words and a '-' will be inserted at the end of each sub-words
+            # (except the last one)
+            while len(word) > length:
+                self.rows.append(self.format_string(temp_row +
+                                 word[0:(length-temp_length-2)] + "- |",
+                                 (length+4)))
+                word = word[(length-temp_length-1):]
                 temp_length = 0
-            # There is enought space at the end of the line to append the new word
-            if ( len( word ) + temp_length + 1 ) < length:
+            # There is enought space at the end of the line to append
+            # the new word
+            if (len(word) + temp_length + 1) < length:
                 temp_row += word + " "
-                temp_length += ( len( word ) + 1 )
-            # No space for the new word, so the line must be finalized and appended
-            # to the rows array of the box
+                temp_length += (len(word) + 1)
+            # No space for the new word, so the line must be finalized and
+            # appended to the rows array of the box
             else:
-                self.rows.append( self.format_string( temp_row, (length+3) ) + "|" )
+                self.rows.append(self.format_string(temp_row,
+                                                    (length+3)) + "|")
                 temp_row = "| " + word + " "
-                temp_length = ( len( word ) + 1 )
+                temp_length = (len(word) + 1)
         # Append the last line created to the array (only if not empty)
         if temp_row != "":
-            self.rows.append( self.format_string( temp_row, (length+3) ) + "|" )
+            self.rows.append(self.format_string(temp_row, (length+3)) + "|")
