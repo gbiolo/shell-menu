@@ -103,9 +103,10 @@ if __name__ == "__main__":
         # Add all menu boxes
         for menu in sorted(menu_conf["menu"].keys()):
             boxes.append(Menu(menu_conf["menu"][menu]))
-        # Add all info boxes
-        for info in sorted(menu_conf["info"].keys()):
-            boxes.append(Info(menu_conf["info"][info]))
+        # Add all info boxes if any
+        if "info" in menu_conf:
+            for info in sorted(menu_conf["info"].keys()):
+                boxes.append(Info(menu_conf["info"][info]))
 
     # Till the end of the world... or the user insert the exit choice :)
     while True:
