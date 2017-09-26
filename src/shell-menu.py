@@ -46,11 +46,10 @@ from getpass import getuser
 from subprocess import call
 import sys
 import termios
-import os
 
 
 # Import the sheel-menu libraries
-sys.path.append(os.getcwd() + "/shell-menu")
+sys.path = ([sys.path[0] + "/shell-menu"] + sys.path)
 from menu import Menu
 from info import Info
 
@@ -65,7 +64,7 @@ if __name__ == "__main__":
     menu_conf = None
 
     # Open and load the main configuration JSON
-    with open(os.getcwd() + "/cnf/shell-menu.json", "r") as configuration:
+    with open(sys.path[1] + "/cnf/shell-menu.json", "r") as configuration:
         main_conf = json.load(configuration)
 
     # Check if the user has defined a configuration file for the current
