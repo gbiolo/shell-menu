@@ -99,7 +99,7 @@ class Info(Box):
                 temp_length = 0
             # There is enought space at the end of the line to append
             # the new word
-            if (len(word) + temp_length + 1) < length:
+            if (len(word) + temp_length + 1) <= length:
                 temp_row += word + " "
                 temp_length += (len(word) + 1)
             # No space for the new word, so the line must be finalized and
