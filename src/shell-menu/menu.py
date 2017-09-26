@@ -65,7 +65,7 @@ class Menu(Box):
             num_commands = int(num_commands / 10)
         # Box size, calculated on length of menu name and on length of all
         # command names
-        header_length = len(self.title) + 4
+        header_length = len(self.title) + 2
         for command in commands:
             command_length = (len(command["name"]) + index_length + 4)
             if command_length > header_length:

@@ -11,22 +11,22 @@ This is an example of a shell-menu session running on Linux:
 ```
 Example of a shell-menu
 
-+------------------------+   +-------------------------+   +----------------------+
-|   First submenu title  |   |   Second submenu title  |   |   Two text info box  |
-+------------------------+   +-------------------------+   +----------------------+
-| 1) First command       |   | 10) Fourth command      |   | * Lorem ipsum dolor  |
-| 2) Second command      |   | 11) Fifth command       |   | sit amet,            |
-| 3) Third command       |   +-------------------------+   | consectetur          |
-+------------------------+                                 | adipiscing elit.     |
-                                                           | Maecenas a.          |
-                                                           | * Lorem ipsum dolor  |
-                                                           | sit amet,            |
-                                                           | consectetur          |
-                                                           | adipiscing elit.     |
-                                                           | Donec egestas urna   |
-                                                           | id dolor tincidunt   |
-                                                           | tincidunt.           |
-                                                           +----------------------+
++----------------------+   +-----------------------+   +----------------------+   +----------------------+
+| First submenu title  |   | Second submenu title  |   |  Two text info box   |   | Single text info box |
++----------------------+   +-----------------------+   +----------------------+   +----------------------+
+| 1) First command     |   | 10) Fourth command    |   | * Lorem ipsum dolor  |   | Lorem ipsum dolor    |
+| 2) Second command    |   | 11) Fifth command     |   | sit amet,            |   | sit amet,            |
+| 3) Third command     |   +-----------------------+   | consectetur          |   | consectetur          |
++----------------------+                               | adipiscing elit.     |   | adipiscing elit.     |
+                                                       | Maecenas a.          |   | Phasellus et cursus  |
+                                                       | * Lorem ipsum dolor  |   | ex. Nullam feugiat   |
+                                                       | sit amet,            |   | posuere.             |
+                                                       | consectetur          |   +----------------------+
+                                                       | adipiscing elit.     |
+                                                       | Donec egestas urna   |
+                                                       | id dolor tincidunt   |
+                                                       | tincidunt.           |
+                                                       +----------------------+
 
 giuseppe@stretch make your choice [ "0" to exit ] :
 ```

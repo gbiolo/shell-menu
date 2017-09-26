@@ -94,7 +94,7 @@ class Box:
         if len(self.rows) > 0:
             self.rows = []
         self.rows.append("+-" + ('-'*(self.size-3)) + "+")
-        self.rows.append("| " + self.format_string(self.title, (self.size-3),
+        self.rows.append("|" + self.format_string(self.title, (self.size-2),
                                                    "center") + "|")
         self.rows.append("+-" + ('-'*(self.size-3)) + "+")
 
