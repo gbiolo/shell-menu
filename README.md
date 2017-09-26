@@ -7,13 +7,29 @@ The main target of the project is to provide an easy to deploy menu to use in
 shell mode, for example in case of remote SSH connection, that allows the user
 to easily execute a set of command.
 
-The configuration is based on two JSON format files. The first must be located
-in a subdirectory called 'cnf' inside the shell-menu.py directory.
-The second one can be saved in any directory of the system where the user that
-will execute the shell-menu.py has the read grants.
+This is an example of a shell-menu session running on Linux:
+```
+Example of a shell-menu
 
-First configuration file is the main one, and the name must be "shell-menu.json".
-The user is free to choose a name for the second one.
++------------------------+   +-------------------------+   +----------------------+
+|   First submenu title  |   |   Second submenu title  |   |   Two text info box  |
++------------------------+   +-------------------------+   +----------------------+
+| 1) First command       |   | 10) Fourth command      |   | * Lorem ipsum dolor  |
+| 2) Second command      |   | 11) Fifth command       |   | sit amet,            |
+| 3) Third command       |   +-------------------------+   | consectetur          |
++------------------------+                                 | adipiscing elit.     |
+                                                           | Maecenas a.          |
+                                                           | * Lorem ipsum dolor  |
+                                                           | sit amet,            |
+                                                           | consectetur          |
+                                                           | adipiscing elit.     |
+                                                           | Donec egestas urna   |
+                                                           | id dolor tincidunt   |
+                                                           | tincidunt.           |
+                                                           +----------------------+
+
+giuseppe@stretch make your choice [ "0" to exit ] :
+```
 
 
 ### Installation
@@ -24,10 +40,10 @@ for normal shell-menu execution.
 
 This is two examples of installation command, the first one using probably Python 2,
 and the second one using probably Python 3:
-```markdown
+```
 python INSTALL.py
 ```
-```markdown
+```
 python3 INSTALL.py
 ```
 Interactive installation will just ask you for a target directory, in which
@@ -36,6 +52,17 @@ shell-menu will be installed inside a subdirectory "shell-menu".
 If the target directory already contains a shell-menu instance, installation
 will propose to switch to update mode. In this mode just sources and minor
 files will be changed, the configuration files won't change.
+
+
+### Configuration
+
+The configuration is based on two JSON format files. The first must be located
+in a subdirectory called 'cnf' inside the shell-menu.py directory.
+The second one can be saved in any directory of the system where the user that
+will execute the shell-menu.py has the read grants.
+
+First configuration file is the main one, and the name must be "shell-menu.json".
+The user is free to choose a name for the second one.
 
 
 ### Synopsis
@@ -67,7 +94,7 @@ Giuseppe Biolo - giuseppe (dot) biolo (at) gmail (dot) com
 ### License
 
 This software is licensed under GPL v3 license.
-```markdown
+```
 Copyright (c) 2017 Giuseppe Biolo
 
 This program is free software: you can redistribute it and/or modify
