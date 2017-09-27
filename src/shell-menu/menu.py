@@ -36,6 +36,7 @@ License:
 
 
 import re
+import os
 
 from box import Box
 
@@ -89,10 +90,22 @@ class Menu(Box):
 
         The command string, from the JSON, will be splitted by spaces (the
         first element is the program, the following are the arguments).
+        If the user used an environment variable into the path of the command
+        to execute, the environment variable is replaced by its value before
+        the command is splitted and returned.
         If the "index" argument value is not a valid key for the links
         dictionary, the method will return the value "None" (no command with
-        the passed index)
+        the passed index).
         """
         if index in self.links:
+            for variable in re.findall("\$[A-Z|_]+", self.links[index]):
+                # Remove the dollar symbol from the variable name
+                variable = variable[1:]
+                # Replace each environment variable used
+                if variable in os.environ:
+                    self.links[index] = re.sub("\$"+variable,
+                                               os.environ[variable],
+                                               self.links[index])
+            # Split the command and return
             return re.split("\s+", self.links[index])
         return None

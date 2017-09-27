@@ -136,9 +136,13 @@ if __name__ == "__main__":
             print('', end="\n")
 
         # Ask the user for the index of the command to execute
-        choice = str(input("{0}{1}@{2} make your choice [ \"{3}\" to exit ] : ".
-                     format((' '*hmargin), getuser(), gethostname(),
-                            main_conf["exit_key"])))
+        question = ("{}{}@{} make your choice [ \"{}\" to exit ] : ".
+                    format((' '*hmargin), getuser(), gethostname(),
+                           main_conf["exit_key"]))
+        if sys.version_info.major == 2:
+            choice = raw_input(question)
+        elif sys.version_info.major == 3:
+            choice = input(question)
         if choice == main_conf["exit_key"]:
             call("clear")
             exit()

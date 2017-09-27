@@ -42,3 +42,10 @@ Main release with the principal functions implemented
 - Interactive installer with Python interpreter recognition
 
 ---------------------------------
+
+## 2017-09-27
+
+### Added
+
+- Use of environment variables into commands path of the user configuration
+  JSON, indicated as usual with a "$" followed by the variable name
