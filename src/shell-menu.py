@@ -1,4 +1,3 @@
-#! /usr/bin/env python3
 
 """shell-menu is a simplified menu for shell environment.
 
@@ -46,6 +45,8 @@ from getpass import getuser
 from subprocess import call
 import sys
 import termios
+import os
+import re
 
 
 # Import the sheel-menu libraries
@@ -91,11 +92,40 @@ if __name__ == "__main__":
             print("No configuration for the current user (" + user + ")")
             exit()
 
-    # Extract from the configuration JSON the format fields, and convert the
-    # text values into numeric (int) values
-    vmargin = main_conf["vmargin"]
-    hmargin = main_conf["hmargin"]
-    hpadding = main_conf["hpadding"]
+    # Style parameters to default values
+    vmargin = 0
+    hmargin = 0
+    hpadding = 3
+
+    # If the user inserted a style configuration in the main JSON, read the
+    # defined values.
+    # Undefined style values will remain to the default value.
+    if "style" in main_conf:
+        if "vmargin" in main_conf["style"]:
+            vmargin = main_conf["style"]["vmargin"]
+        if "hmargin" in main_conf["style"]:
+            hmargin = main_conf["style"]["hmargin"]
+        if "hpadding" in main_conf["style"]:
+            hpadding = main_conf["style"]["hpadding"]
+
+    # Exit sequence to the default value and read from the configuration if
+    # defined by the user.
+    # The default exit sequence is the simple "0" (zero) character
+    exit_key = "0"
+    if "exit_key" in main_conf:
+        exit_key = main_conf["exit_key"]
+
+    # Remove environment variable into user configuration JSON and replace with
+    # their values
+    for variable in re.findall("\$[A-Z|_]+",
+                               main_conf["configurations"][hostname][user]):
+        # Remove the dollar symbol from the variable name
+        variable = variable[1:]
+        # Replace each environment variable used
+        if variable in os.environ:
+            main_conf["configurations"][hostname][user] = re.sub(
+                "\$"+variable, os.environ[variable],
+                main_conf["configurations"][hostname][user])
 
     # Open the specific configuration JSON indicated in the main configuration
     with open(main_conf["configurations"][hostname][user]) as configuration:
@@ -137,13 +167,12 @@ if __name__ == "__main__":
 
         # Ask the user for the index of the command to execute
         question = ("{}{}@{} make your choice [ \"{}\" to exit ] : ".
-                    format((' '*hmargin), getuser(), gethostname(),
-                           main_conf["exit_key"]))
+                    format((' '*hmargin), getuser(), gethostname(), exit_key))
         if sys.version_info.major == 2:
             choice = raw_input(question)
         elif sys.version_info.major == 3:
             choice = input(question)
-        if choice == main_conf["exit_key"]:
+        if choice == exit_key:
             call("clear")
             exit()
         else:

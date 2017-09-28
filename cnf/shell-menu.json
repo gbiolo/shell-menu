@@ -1,4 +1,5 @@
 {
+    "exit_key" : "0",
     "configurations" : {
         "hostname" : {
             "user1" : "/path/to/user1/configuration/shell-menu-content.json",
@@ -8,8 +9,9 @@
             "*" : "/path/to/all/user/configuration/shell-menu-content.json"
         }
     },
-    "exit_key" : "0",
-    "vmargin"  : 0,
-    "hmargin"  : 0,
-    "hpadding" : 3
+    "style" : {
+        "vmargin"  : 0,
+        "hmargin"  : 0,
+        "hpadding" : 3
+    }
 }

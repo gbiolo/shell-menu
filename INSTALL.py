@@ -130,13 +130,11 @@ if __name__ == "__main__":
     # Copy main source file inserting the right environment
     print("Set " + interpreter_path + " as Python interpreter")
     print("Creating source file " + destination_path + "/shell-menu.py")
-    with open(local_path + "/src/shell-menu.py", "r") as in_handler:
-        with open(destination_path + "/shell-menu.py", "w") as out_handler:
+    with open(destination_path + "/shell-menu.py", "w") as out_handler:
+        print("#! " + interpreter_path, end="\n", file=out_handler)
+        with open(local_path + "/src/shell-menu.py", "r") as in_handler:
             for line in in_handler:
-                if re.match("^#! ", line):
-                    print("#! " + interpreter_path, end="\n", file=out_handler)
-                else:
-                    print(line, end='', file=out_handler)
+                print(line, end='', file=out_handler)
     call(["chmod", "u+x", destination_path + "/shell-menu.py"])
 
     # Copy other source files
