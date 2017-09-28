@@ -40,5 +40,5 @@ ___
 #### 2017-09-28
 ##### Added
 * Use of environment variables into main configuration JSON file paths
-* User exit sequence is an optional, and style configurations too; if one or more
+* User exit sequence and style configurations are optional now; if one or more
   values are not present, they will be set to a built-in default value
