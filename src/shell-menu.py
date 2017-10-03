@@ -166,11 +166,11 @@ if __name__ == "__main__":
             print('', end="\n")
 
         # Ask the user for the index of the command to execute
-        question = ("{}{}@{} make your choice [ \"{}\" to exit ] : ".
+        question = ("{0}{1}@{2} make your choice [ \"{3}\" to exit ] : ".
                     format((' '*hmargin), getuser(), gethostname(), exit_key))
-        if sys.version_info.major == 2:
+        if sys.version_info[0] == 2:
             choice = raw_input(question)
-        elif sys.version_info.major == 3:
+        elif sys.version_info[0] == 3:
             choice = input(question)
         if choice == exit_key:
             call("clear")
@@ -189,7 +189,7 @@ if __name__ == "__main__":
             # Command not found in any menu box
             if not found:
                 print()
-                print("{}\"{}\" is not a valid choice".
+                print("{0}\"{1}\" is not a valid choice".
                       format((' '*hmargin), choice), end="\n\n")
 
             # Print the 'go back' message and wait until the user press the

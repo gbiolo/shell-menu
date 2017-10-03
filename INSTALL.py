@@ -53,9 +53,9 @@ def ask_user(question):
     value is the user answer.
     """
     answer = None
-    if sys.version_info.major == 2:
+    if sys.version_info[0] == 2:
         answer = raw_input(question)
-    elif sys.version_info.major == 3:
+    elif sys.version_info[0] == 3:
         answer = input(question)
     return answer
 
@@ -145,7 +145,7 @@ if __name__ == "__main__":
                           destination_path + "/shell-menu")
 
     # Copy LICENSE, README.md, CHANGELOG
-    for text_file in "LICENSE", "README.md", "CHANGELOG":
+    for text_file in "LICENSE", "README.md", "CHANGELOG.md":
         copy_file(local_path + "/" + text_file, destination_path)
 
     # Copy configuration files only if not in update mode
