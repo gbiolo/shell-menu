@@ -68,7 +68,7 @@ The user is free to choose a name for the second one.
 ### Synopsis
 
 If all cofigurations have been done correctly just execute
-```markdown
+```
 ./shell-menu.py
 ```
 Into the directoy where the program has been installed.
@@ -93,7 +93,7 @@ Giuseppe Biolo - giuseppe (dot) biolo (at) gmail (dot) com
 
 ### License
 
-This software is licensed under GPL v3 license.
+This software is licensed under [GPL v3 license](http://www.gnu.org/licenses/).
 ```
 Copyright (c) 2017 Giuseppe Biolo
 
@@ -106,7 +106,4 @@ This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
-
-You can read the full text of the GNU General Public License version 3
-[here](http://www.gnu.org/licenses/).
 ```
