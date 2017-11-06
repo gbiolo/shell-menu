@@ -28,7 +28,7 @@ Example of a shell-menu
                                                        | tincidunt.           |
                                                        +----------------------+
 
-giuseppe@stretch make your choice [ "0" to exit ] :
+username@hostname make your choice [ "0" to exit ] :
 ```
 
 
