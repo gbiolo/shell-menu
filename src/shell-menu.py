@@ -31,7 +31,7 @@ License:
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with shell-menu.  If not, see <http://www.gnu.org/licenses/>.
+    along with shell-menu. If not, see <http://www.gnu.org/licenses/>.
 """
 
 
@@ -48,11 +48,11 @@ import termios
 import os
 import re
 
-
 # Import the sheel-menu libraries
 sys.path = ([sys.path[0] + "/shell-menu"] + sys.path)
 from menu import Menu
 from info import Info
+
 
 # Execute only in interactive mode
 if __name__ == "__main__":
