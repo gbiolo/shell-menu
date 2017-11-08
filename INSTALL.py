@@ -128,7 +128,12 @@ if __name__ == "__main__":
             exit()
 
     # Copy main source file inserting the right environment
-    print("Set " + interpreter_path + " as Python interpreter")
+    if update_mode is True:
+        with open(destination_path + "/shell-menu.py", "r") as handler:
+            shabang = re.match("^#!\s*(.+)$", handler.readline())
+            if shabang is not None:
+                interpreter_path = shabang.group(1)
+    print("Set \"" + interpreter_path + "\" as Python interpreter")
     print("Creating source file " + destination_path + "/shell-menu.py")
     with open(destination_path + "/shell-menu.py", "w") as out_handler:
         print("#! " + interpreter_path, end="\n", file=out_handler)
