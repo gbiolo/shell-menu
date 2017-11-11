@@ -79,9 +79,9 @@ class Menu(Box):
         # Then closing line will be added by the base class too
         index = configuration["base"]
         for command in commands:
-            index_str = self.format_string(str(index), index_length, "dx")
-            self.rows.append("| " + self.format_string(index_str + ") " +
-                             command["name"] + " ", header_length, "sx") + '|')
+            self.rows.append("| " + "{0}) {1} ".format(str(index).rjust(
+                             index_length), command["name"]).ljust(
+                             header_length) + "|")
             self.links[str(index)] = command["command"]
             index += 1
         self.rows.append("+-" + ('-'*header_length) + "+")

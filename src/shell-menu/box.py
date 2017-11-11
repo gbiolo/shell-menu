@@ -57,34 +57,6 @@ class Box:
         self.title = ""
         self.index = 0
 
-    def format_string(self, unformatted, length, allign="sx"):
-        """Function to format a string to a given length and allignment.
-
-        Input parameters are the following:
-            unformatted : string to format
-            length      : final length of the formatted string; in case of
-                          input string longer than the final length, the final
-                          string will be the same of the input one
-            allign      : allignment of the final string; allowed values:
-                              - sx     : left allignment   (default value)
-                              - dx     : right allignment
-                              - center : centred string
-        Return value is the formatted string.
-        """
-        if len(unformatted) >= length:
-            return unformatted
-        formatted = ""
-        spaces = (length - len(unformatted))
-        if allign == "sx":
-            formatted = (unformatted + (' ' * spaces))
-        elif allign == "dx":
-            formatted = ((' ' * spaces) + unformatted)
-        elif allign == "center":
-            spaces_sx = int(spaces / 2)
-            spaces_dx = (int(spaces / 2) + (spaces % 2))
-            formatted = ((' ' * spaces_sx) + unformatted + (' ' * spaces_dx))
-        return formatted
-
     def create_header(self):
         """Create the header for the box reporting the name (centered).
 
@@ -94,8 +66,7 @@ class Box:
         if len(self.rows) > 0:
             self.rows = []
         self.rows.append("+-" + ('-'*(self.size-3)) + "+")
-        self.rows.append("|" + self.format_string(self.title, (self.size-2),
-                                                  "center") + "|")
+        self.rows.append("|" + self.title.center(self.size-2) + "|")
         self.rows.append("+-" + ('-'*(self.size-3)) + "+")
 
     def get_row(self):

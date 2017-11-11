@@ -93,9 +93,9 @@ class Info(Box):
             # sub-words and a '-' will be inserted at the end of each sub-words
             # (except the last one)
             while len(word) > length:
-                self.rows.append(self.format_string(temp_row +
-                                 word[0:(length-temp_length-2)] + "- |",
-                                 (length+4)))
+                self.rows.append("{0}{1}- ".format(temp_row,
+                                 word[0:(length-temp_length-2)]).
+                                 ljust(length+4))
                 word = word[(length-temp_length-1):]
                 temp_length = 0
             # There is enought space at the end of the line to append
@@ -106,10 +106,9 @@ class Info(Box):
             # No space for the new word, so the line must be finalized and
             # appended to the rows array of the box
             else:
-                self.rows.append(self.format_string(temp_row,
-                                                    (length+3)) + "|")
+                self.rows.append(temp_row.ljust(length+3) + "|")
                 temp_row = "| " + word + " "
                 temp_length = (len(word) + 1)
         # Append the last line created to the array (only if not empty)
         if temp_row != "":
-            self.rows.append(self.format_string(temp_row, (length+3)) + "|")
+            self.rows.append(temp_row.ljust(length+3) + "|")
