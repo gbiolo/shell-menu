@@ -86,6 +86,12 @@ installation it will be changed according the version of Python interpreter
 used for installation script.
 
 
+### I love you, man. Will you have my baby?
+
+No, but I appreciate your consideration. Just use shell-menu... is enought to me
+to be happy.
+
+
 ### Author
 
 Giuseppe Biolo - giuseppe (dot) biolo (at) gmail (dot) com
